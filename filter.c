@@ -1,18 +1,29 @@
-#include "my_array.h"
-#define length_of(arr) sizeof(arr)/sizeof(arr[0])
-#define iterate_on_array(arr) for (int i = 0; i < length_of(arr); i++)
+#include <stdio.h>
+#include <stdlib.h>
 
 int main(void)
 {
     int numbers[5] = {1, 2, 3, 4, 5};
-    my_array *filteredNumbers = new_array();
-    iterate_on_array(numbers)
+    int numberOfEvens = 0;
+    int count_of_numbers = sizeof(numbers) / sizeof(numbers[0]);
+    for (int i = 0; i < count_of_numbers; i++)
     {
-        if(numbers[i] %2 ==0){
-            push(filteredNumbers, numbers[i]);
+        if (numbers[i] % 2 == 0)
+            numberOfEvens++;
+    }
+    int *evens = malloc(sizeof(int) * numberOfEvens);
+    for (int i = 0, j = 0; i < count_of_numbers; i++)
+    {
+        if (numbers[i] % 2 == 0)
+        {
+            evens[j] = numbers[i];
+            j++;
         }
     }
-    print_array(filteredNumbers);
-    printf("Length of array: %d\n", filteredNumbers->length);
+    for (int i = 0; i < numberOfEvens; i++)
+    {
+        printf("%d\n", evens[i]);
+    }
+
     return 0;
-}
+};
