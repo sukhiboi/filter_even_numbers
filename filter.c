@@ -5,14 +5,14 @@
 int main(void)
 {
     int numbers[5] = {1, 2, 3, 4, 5};
-    my_array *filteredNUmbers = new_array();
+    my_array *filteredNumbers = new_array();
     iterate_on_array(numbers)
     {
         if(numbers[i] %2 ==0){
-            push(filteredNUmbers, numbers[i]);
+            push(filteredNumbers, numbers[i]);
         }
     }
-    print_array(filteredNUmbers);
-    printf("Length of array: %d\n", filteredNUmbers->length);
+    print_array(filteredNumbers);
+    printf("Length of array: %d\n", filteredNumbers->length);
     return 0;
 }
